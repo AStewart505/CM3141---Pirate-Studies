@@ -1,0 +1,174 @@
+body
+{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom right, #00d0ff, #021a91);
+  color: #ffffff;
+}
+
+/* NAVBAR */
+.navbar
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: #021a91;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.navbar a
+{
+  margin: 10px 16px;
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.login-btn
+{
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* HERO */
+.hero
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 10%;
+}
+
+.hero-text
+{
+  max-width: 500px;
+}
+
+.hero h1
+{
+  font-size: 42px;
+}
+
+.hero p
+{
+  margin: 20px 0;
+  color: #666;
+}
+
+.primary-btn
+{
+  background: linear-gradient(45deg, #021a91, #0426ce);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.primary-btn:hover
+{
+  opacity: 0.9;
+}
+
+.secondary-link
+{
+  display: block;
+  margin-top: 10px;
+  color: #021a91;
+}
+
+/* FEATURES */
+.features
+{
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 10%;
+}
+
+.card
+{
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 30%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.card:hover
+{
+  transform: translateY(-5px);
+}
+
+/* SOCIAL */
+.social-proof
+{
+  text-align: center;
+  margin: 40px 0;
+}
+
+/* HOW IT WORKS */
+.how-it-works
+{
+  text-align: center;
+  padding: 50px 10%;
+}
+
+.steps
+{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.step
+{
+  width: 30%;
+}
+
+/* FINAL CTA */
+.final-cta
+{
+  text-align: center;
+  margin: 50px 0;
+}
+
+/*            Game Page            */
+
+.page-header
+{
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* GAMES */
+.games-container
+{
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 10%;
+}
+
+.game-card
+{
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 30%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.game-card:hover
+{
+  transform: translateY(-5px);
+}
+
+.game-card button
+{
+  margin-top: 15px;
+}
