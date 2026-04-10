@@ -1,6 +1,6 @@
 body
 {
-  font-family: Arial, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   background: linear-gradient(to bottom right, #00d0ff, #021a91);
   color: #ffffff;
@@ -26,8 +26,7 @@ body
 
 .login-btn
 {
-  padding: 10px 16px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
 }
@@ -43,7 +42,9 @@ body
 
 .hero-text
 {
-  max-width: 500px;
+  max-width: 550px;
+  text-align: center;
+  color: #021a91;
 }
 
 .hero h1
@@ -54,30 +55,14 @@ body
 .hero p
 {
   margin: 20px 0;
-  color: #666;
-}
-
-.primary-btn
-{
-  background: linear-gradient(45deg, #021a91, #0426ce);
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.primary-btn:hover
-{
-  opacity: 0.9;
+  color: #ffffff;
 }
 
 .secondary-link
 {
   display: block;
   margin-top: 10px;
-  color: #021a91;
+  color: #ffffff;
 }
 
 /* FEATURES */
@@ -90,7 +75,9 @@ body
 
 .card
 {
-  background: white;
+  color:#ffffff;
+  background: #021a91;
+  text-align: center;
   padding: 20px;
   border-radius: 15px;
   width: 30%;
@@ -111,29 +98,46 @@ body
 }
 
 /* HOW IT WORKS */
+
 .how-it-works
 {
   text-align: center;
-  padding: 50px 10%;
 }
 
 .steps
 {
   display: flex;
+  
   justify-content: space-around;
-  margin-top: 30px;
+  padding: 50px 10%;
 }
 
 .step
 {
+  color:#ffffff;
+  background: #021a91;
+  text-align: center;
+  padding: 20px;
+  border-radius: 15px;
   width: 30%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
 }
 
-/* FINAL CTA */
-.final-cta
+.step:hover
 {
+  transform: translateY(-5px);
+}
+
+/* Footer*/
+.footer
+{
+  background-color: #021a91;
+  display: flex;
+  flex-direction: column;
+  min-height: 50px;
   text-align: center;
-  margin: 50px 0;
+
 }
 
 /*            Game Page            */
