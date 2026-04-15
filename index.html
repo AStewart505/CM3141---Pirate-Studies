@@ -2,90 +2,120 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Student Connect</title>
+        <title>IceLink</title>
         <link rel="stylesheet" href="css/styles.css">
     </head>
     
     <body>
+        
         <!-- NAVBAR -->
-         <header class="navbar">
-            <h2>
-                <img src="images/IceLink_logo.png" alt="IceLink Logo" style="height: 60px; vertical-align: middle;">
-            </h2>
-            <nav>
-                <a href="index.html"><img src="images/home.png" alt="Home" style="height: 60px; vertical-align: middle;"></a>
-                <a href="games.html"><img src="images/games.png" alt="Games" style="height: 60px; vertical-align: middle;"></a>
-                <a href="chat-rooms.html"><img src="images/chatroom.png" alt="Chat Room" style="height: 60px; vertical-align: middle;"></a>
-                <a href="login.html"><img src="images/login.png" alt="Login" style="height: 60px; vertical-align: middle;"></a>
-            </nav>
+        <header class="navbar full-width">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <img src="images/IceLink_logo.png" style="height: 60px;">
+                </div>
+
+                <div class="nav-right">
+                    <a href="index.html"><img src="images/home.png" style="height: 60px;"></a>
+                    <a href="games.html"><img src="images/games.png" style="height: 60px;"></a>
+                    <a href="chat-rooms.html"><img src="images/chatroom.png" style="height: 60px;"></a>
+                    <a href="login.html"><img src="images/login.png" style="height: 60px;"></a>
+                </div>
+            </div>
         </header>
 
-        <!-- HERO SECTION -->
-         <section class="hero">
-            <div class="hero-text">
-                <h1>Find Your Personality.<br>Find Your People.</h1>
-                <p>Starting university can feel overwhelming but it doesn’t have to be. Take our quick quiz, play interactive games, and connect with students like you.</p>
-                <a href="#"><img src="images/start-quiz.png" alt="Start Quiz" style="height: 60px; vertical-align: middle;"></a>
-                <a href="games.html" class="secondary-link">Explore Games →</a>
-            </div>
+        <div class="page-wrapper">
+            <!-- LEFT SIDE -->
+            <div class="side-bg"></div>
 
-            <div class="hero-image">
-                <img src="images/students.png" alt="Students illustration"> 
-            </div>
-        </section>
+            <!-- CENTER CONTENT -->
+            <div class="content-area">
 
-        <!-- FEATURES -->
-         <section class="features">
-            <div class="card">
-                <h3>🧠 Discover Your Personality</h3>
-                <p>Take a fun quiz to learn more about yourself.</p>
-                <a href="quiz.html"><img src="images/start-quiz.png" alt="Take Quiz" style="height: 40px; vertical-align: middle;"></a>
-            </div>
+                <!-- VIDEO BACKGROUND -->
+                <video autoplay muted loop playsinline poster="images/video_fallback_image.png" class="bg-video">
+                    <source src="videos/Icelink_background.mp4" type="video/mp4">
+                </video>
 
-            <div class="card">
-                <h3>🧩 Escape Room Game</h3>
-                <p>Solve puzzles and explore different story endings.</p>
-                <a href="escape-room.html"><img src="images/escape-room.png" alt="Play Now" style="height: 40px; vertical-align: middle;"></a>
-            </div>
+                <!-- OVERLAY -->
+                <div class="video-overlay"></div>
 
-            <div class="card">
-                <h3>💬 Join Chat Groups</h3>
-                <p>Meet students and form small study teams for your group projects.</p>
-                <a href="chat-rooms.html"><img src="images/chatroom.png" alt="Join Chat" style="height: 40px; vertical-align: middle;"></a>
-            </div>
-        </section>
+                <!-- ALL CONTENT -->
+                <div class="page-content">
 
-        <!-- SOCIAL PROOF -->
-         <section class="social-proof">
-            <p>Join <strong>300+ students</strong> already connecting and making friends ⭐⭐⭐⭐⭐</p>
-            <br>
-            <br>
-        </section>
+                    <!-- HERO -->
+                    <section class="hero">
+                        <div class="hero-text">
+                            <h1>Find Your Personality.<br>Find Your People.</h1>
+                            <p>Starting university can feel overwhelming but it doesn't have to be.</p>
+                            
+                            <div class="hero-actions">
+                                <a href="quiz.html" class="start-quiz-btn"><img src="images/start-quiz.png" alt="Start Quiz"></a>
+                                <a href="games.html" class="secondary-link">Explore Games →</a>
+                            </div>
+                        </div>
 
-        <!-- HOW IT WORKS -->
-         <section class="how-it-works">
-            <h2>How It Works</h2>
+                        <div class="hero-image">
+                            <img src="images/students.png">
+                        </div>
+                    </section>
 
-            <div class="steps">
-                <div class="step">
-                    <h3>1. Take the Quiz</h3>
-                    <p>Answer a few questions to find your personality group.</p>
+                    <!-- FEATURES -->
+                    <section class="features">
+                        <div class="card">
+                            <h3>Discover Your Personality</h3>
+                            <p>Take a fun quiz to learn more about yourself.</p>
+                            <a href="quiz.html"><img src="images/start-quiz.png" style="height: 40px;"></a>
+                        </div>
+
+                        <div class="card">
+                            <h3>Escape Room Game</h3>
+                            <p>Solve puzzles and explore different story endings.</p>
+                            <a href="escape-room.html"><img src="images/escape-room.png" style="height: 40px;"></a>
+                        </div>
+
+                        <div class="card">
+                            <h3>Join Chat Groups</h3>
+                            <p>Meet students and form small study teams.</p>
+                            <a href="chat-rooms.html"><img src="images/chatroom.png" style="height: 40px;"></a>
+                        </div>
+                    </section>
+
+                    <!-- SOCIAL -->
+                    <section class="social-proof">
+                        <p>Join <strong>300+ students</strong> already connecting ⭐⭐⭐⭐⭐</p>
+                    </section>
+
+                    <!-- HOW IT WORKS -->
+                    <section class="how-it-works">
+                        <h2>How It Works</h2>
+
+                        <div class="steps">
+                            <div class="step">
+                                <h3>1. Take the Quiz</h3>
+                                <p>Answer a few questions to find your group.</p>
+                            </div>
+
+                            <div class="step">
+                                <h3>2. Get The Results</h3>
+                                <p>Learn your strengths and roles.</p>
+                            </div>
+
+                            <div class="step">
+                                <h3>3. Join The Chatroom</h3>
+                                <p>Connect and build relationships.</p>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-
-                <div class="step">
-                    <h3>2. Get The Results</h3>
-                    <p>Learn your strengths along with ideal group roles.</p>
-                </div>
-
-                <div class="step">
-                    <h3>3. Join The Chatroom</h3>
-                    <p>Connect with your peers and build meaningful relationships.</p>
-                </div>
             </div>
-        </section>
 
-         <footer class="footer">
-            <p> 2026 IceLink. All rights reserved.</p>
+            <!-- RIGHT SIDE -->
+            <div class="side-bg"></div>
+        </div>
+        
+        <!-- FOOTER -->
+        <footer class="footer full-width">
+            <p>2026 IceLink. All rights reserved.</p>
         </footer>
     </body>
 </html>
