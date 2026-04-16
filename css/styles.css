@@ -269,6 +269,7 @@ html,body {
 }
 
 .step {
+  opacity: 0;
   background: rgba(2, 26, 145, 0.75);
   position: relative;
   z-index: 1;
@@ -278,6 +279,18 @@ html,body {
   backdrop-filter: blur(6px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   transition: transform 0.2s ease;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.step:nth-child(2) {animation-delay: 0.2s;}
+.step:nth-child(3) {animation-delay: 0.4s;}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .step:hover {
@@ -285,17 +298,19 @@ html,body {
 }
 
 .step::after {
-  content: "→";
+  content: "➜";
   position: absolute;
-  z-index: 10;
   right: -50px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 32px;
-  color: #38bdf8;
-  opacity: 0.8;
-  text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+  font-size: 34px;
+  color: #ffffff;
+  opacity: 0.75;
+  text-shadow:
+    0 0 6px rgba(56, 189, 248, 0.8),
+    0 0 12px rgba(56, 189, 248, 0.6);
   animation: arrowPulse 1.5s infinite;
+  z-index: 10;
 }
 
 @keyframes arrowPulse {
