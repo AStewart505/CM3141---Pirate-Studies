@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IceLink Sign In</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+  </head>
+  <body>
+    <header class="navbar full-width">
+      <div class="nav-container">
+        <div class="nav-left">
+          <img src="images/IceLink_logo.png" alt="IceLink logo" style="height: 60px;">
+        </div>
+        <div class="nav-right">
+          <a href="index.html"><img src="images/home.png" alt="Home"></a>
+          <a href="games.html"><img src="images/games.png" alt="Games"></a>
+          <a href="chat-rooms.html"><img src="images/chatroom.png" alt="Chat Rooms"></a>
+          <a href="login.html"><img src="images/login.png" alt="Login"></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-wrapper">
+      <div class="side-bg"></div>
+      <div class="content-area">
+        <div class="login-panel">
+          <div class="login-card">
+            <div class="logo-wrapper">
+              <img src="images/IceLink_logo.png" alt="IceLink">
+            </div>
+            <h2>Sign in to IceLink</h2>
+            <p>Access your groups, quizzes, and chat rooms in one place.</p>
+            <form action="/search" method="POST">
+              <div>
+                <label for="email">Email address</label>
+                <input type="email" name="email" id="email" placeholder="name@example.com" autocomplete="email" required>
+              </div>
+              <div>
+                <div class="field-header">
+                  <label for="password">Password</label>
+                  <a href="#">Forgot password?</a>
+                </div>
+                <input type="password" name="password" id="password" placeholder="Enter your password" autocomplete="current-password" required>
+              </div>
+              <button type="submit" id="signButton">Sign in</button>
+            </form>
+            <p class="signup-text">
+              Not a member? <a href="register.html">Sign up here</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="side-bg"></div>
+    </div>
+
+    <footer class="footer">
+      <p class="footer-title">IceLink</p>
+      <p class="footer-copy"> 2026 IceLink Inc. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
