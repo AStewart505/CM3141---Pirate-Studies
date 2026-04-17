@@ -1,0 +1,208 @@
+
+/* Makes the quiz scroll if 5 questions are too tall */
+.container {
+  width: 560px;
+  text-align: center;
+
+  background: rgba(2, 26, 145, 0.65);
+  backdrop-filter: blur(10px);
+
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+
+
+/* Progress Bar */
+.progress-bar {
+  background: rgba(255,255,255,0.2);
+  height: 8px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#progress {
+  height: 8px;
+  width: 0%;
+  background: #38bdf8;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* Optional page indicator */
+#pageIndicator {
+  font-size: 13px;
+  color: #cfe9ff;
+}
+
+/* Question */
+h2 {
+  font-size: 18px;
+  margin: 10px 0;
+  color: #e0f2ff;
+}
+
+
+/* Question block spacing */
+.questionBlock {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.questionBlock:last-child {
+  border-bottom: none;
+}
+
+
+/* Scale Layout */
+.options {
+  margin-top: 10px;
+}
+
+.scale {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Base Circle */
+.circle {
+  flex: 1;
+  max-width: 50px;
+  height: 40px;
+  border-radius: 50%;
+
+  border: 2px solid rgba(255,255,255,0.5);
+  background: transparent;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Blue to purple */
+.circle[data-value="1"] { 
+  border-color: #38bdf8; 
+}
+.circle[data-value="2"] { 
+  border-color: #60a5fa; }
+.circle[data-value="3"] { border-color: #818cf8; 
+}
+.circle[data-value="4"] {
+  border-color: #6366f1; 
+}
+.circle[data-value="5"] { 
+  border-color: #4338ca; 
+}
+
+/* Hover effect */
+.circle:hover {
+  transform: scale(1.1);
+}
+
+
+/* Snowflake when selected */
+
+.circle.selected {
+  background: transparent;
+  border-color: transparent;
+  position: relative;
+  transform: scale(1.2);
+}
+
+.circle.selected::after {
+  content: "❄";
+  font-size: 22px;
+  color: #38bdf8;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+
+  text-shadow:
+  0 0 6px #38bdf8,
+  0 0 12px #38bdf8,
+  0 0 18px rgba(56,189,248,0.6);
+
+  animation: snowPop 0.3s ease;
+}
+
+/* SNOW ANIMATION */
+@keyframes snowPop {
+0% {
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+}
+100% {
+  transform: translate(-50%, -50%) scale(1.2);
+  opacity: 1;
+}
+}
+
+/* Labels under circles */
+.labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 8px;
+  color: #cfe9ff;
+}
+
+
+/* Navigation Buttons */
+
+.navigation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  border-radius: 30px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.15);
+  color: white;
+
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(56,189,248,0.6);
+}
+
+#nextBtn,
+#submitBtn {
+  background: rgba(56,189,248,0.3);
+}
+
+/* --------------Result screen styling -----------*/
+.result {
+  text-align: center;
+}
+
+.result-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.result-image.large {
+  width: 560px;
+  height: 220px;
+}

@@ -1,62 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>IceLink</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    
-    <body>
-        
-        <!-- NAVBAR -->
-        <header class="navbar full-width">
-            <div class="nav-container">
-                <div class="nav-left">
-                    <img src="images/IceLink_logo.png" style="height: 60px;">
-                </div>
+<html>
+<head>
+  <title>Student Personality Test</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
 
-                <div class="nav-right">
-                    <a href="index.html"><img src="images/home.png" style="height: 60px;"></a>
-                    <a href="games.html"><img src="images/games.png" style="height: 60px;"></a>
-                    <a href="chat-rooms.html"><img src="images/chatroom.png" style="height: 60px;"></a>
-                    <a href="login.html"><img src="images/login.png" style="height: 60px;"></a>
-                </div>
-            </div>
-        </header>
+<body>
 
-        <div class="page-wrapper">
-            <!-- LEFT SIDE -->
-            <div class="side-bg"></div>
+  <!-- NAVBAR -->
+  <header class="navbar full-width">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="images/IceLink_logo.png" style="height: 60px;">
+      </div>
 
-            <!-- CENTER CONTENT -->
-            <div class="content-area">
+      <div class="nav-right">
+        <a href="#"><img src="images/home.png"></a>
+        <a href="#"><img src="images/games.png"></a>
+        <a href="#"><img src="images/chatroom.png"></a>
+        <a href="#"><img src="images/login.png"></a>
+      </div>
+    </div>
+  </header>
 
-                <!-- VIDEO BACKGROUND -->
-                <video autoplay muted loop playsinline poster="images/video_fallback_image.png" class="bg-video">
-                    <source src="videos/Icelink_background.mp4" type="video/mp4">
-                </video>
+  <div class="page-wrapper">
 
-                <!-- OVERLAY -->
-                <div class="video-overlay"></div>
+    <!-- LEFT -->
+    <div class="side-bg"></div>
 
-                <!-- ALL CONTENT -->
-                <div class="page-content">
+    <!-- CENTER -->
+    <div class="content-area">
 
-                    <!-- HERO -->
-             
+      <!-- VIDEO -->
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="videos/Icelink_background.mp4" type="video/mp4">
+      </video>
 
-                    <!-- FEATURES -->
-                
-                </div>
-            </div>
+      <!-- OVERLAY -->
+      <div class="video-overlay"></div>
 
-            <!-- RIGHT SIDE -->
-            <div class="side-bg"></div>
+      <!-- PAGE CONTENT -->
+      <div class="page-content">
+
+        <!-- QUIZ CONTAINER -->
+        <div class="container">
+
+          <div class="progress-bar">
+            <div id="progress"></div>
+          </div>
+
+          <p id="pageIndicator">Page 1 of 3</p>
+
+          <div id="quiz"></div>
+
+          <div class="navigation">
+            <button id="backBtn">Back</button>
+            <button id="nextBtn">Next</button>
+            <button id="submitBtn" style="display:none;">Submit</button>
+          </div>
+
         </div>
-        
-        <!-- FOOTER -->
-        <footer class="footer full-width">
-            <p>2026 IceLink. All rights reserved.</p>
-        </footer>
-    </body>
+
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="side-bg"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer full-width">
+    <p>2026 IceLink. All rights reserved.</p>
+  </footer>
+
+  <script src="js/quiz.js"></script>
+</body>
 </html>
