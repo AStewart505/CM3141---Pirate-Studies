@@ -57,7 +57,8 @@
                             </p>
 
                             <div class="profile-buttons">
-                                <button>Edit Profile</button>
+                                <button class="profile-btn">Edit Profile</button>
+                                <button id="logout-btn" class="profile-btn logout-btn">Logout</button>
                                 <button>⚙️</button>
                                 <button>•••</button>
                             </div>
@@ -103,28 +104,42 @@
     </footer>
 
     <script type="module">
-import { auth } from "./js/firebase.js";
-import { onAuthStateChanged } 
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { auth } from "./js/firebase.js";
+        import { onAuthStateChanged } 
+        from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-/* elements */
-const nameEl = document.getElementById("profile-name");
-const usernameEl = document.getElementById("profile-username");
-const emailEl = document.getElementById("profile-email");
+        // Logout functionality
+        import { signOut } 
+        from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        const logoutBtn = document.getElementById("logout-btn");
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    const username = localStorage.getItem("username") || "User";
+        logoutBtn.addEventListener("click", async () => {
+            try {
+                await signOut(auth);
+                localStorage.removeItem("username");
+                // redirect after logout
+                window.location.href = "index.html";
+            } catch (error) {
+                alert(error.message);
+            }
+        });
 
-    nameEl.textContent = username;
-    usernameEl.textContent = "@" + username.toLowerCase().replace(/\s/g, "");
+        /* elements */
+        const nameEl = document.getElementById("profile-name");
+        const usernameEl = document.getElementById("profile-username");
+        const emailEl = document.getElementById("profile-email");
 
-  } else {
-    /* not logged in → kick out */
-    window.location.href = "login.html";
-  }
-});
-</script>
-
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                const username = localStorage.getItem("username") || "User";
+                nameEl.textContent = username;
+                usernameEl.textContent = "@" + username.toLowerCase().replace(/\s/g, "");
+                emailEl.textContent = user.email;
+            } else {
+                /* not logged in → kick out */
+                window.location.href = "login.html";
+            }
+        });
+    </script>
 </body>
 </html>
