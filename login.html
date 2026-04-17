@@ -17,7 +17,9 @@
           <a href="index.html"><img src="images/home.png" alt="Home"></a>
           <a href="games.html"><img src="images/games.png" alt="Games"></a>
           <a href="chat-rooms.html"><img src="images/chatroom.png" alt="Chat Rooms"></a>
-          <a href="login.html"><img src="images/login.png" alt="Login"></a>
+          <a id="nav-auth-link" href="login.html">
+            <img id="nav-auth-img" src="images/login.png" style="height: 60px;" alt="Login">
+          </a>
         </div>
       </div>
     </header>
@@ -81,6 +83,10 @@ form.addEventListener("submit", async (e) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
+    // TEMP: derive username from email (until database is used)
+    const emailName = email.split("@")[0];
+    localStorage.setItem("username", emailName);
+
     console.log("Logged in:", userCredential.user);
 
     alert("Login successful!");
@@ -93,6 +99,27 @@ form.addEventListener("submit", async (e) => {
   }
 });
 </script>
+
+<script type="module">
+    import { auth } from "./js/firebase.js";
+    import { onAuthStateChanged } 
+    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    const navImg = document.getElementById("nav-auth-img");
+    const navLink = document.getElementById("nav-auth-link");
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // Logged in → show profile
+        navImg.src = "images/userProfile.png";
+        navImg.alt = "Profile";
+        navLink.href = "user-profile.html";
+        } else {
+          // Not logged in → show login
+          navImg.src = "images/login.png";
+          navImg.alt = "Login";
+          navLink.href = "login.html";
+        }
+    });
+  </script>
 
   </body>
 </html>

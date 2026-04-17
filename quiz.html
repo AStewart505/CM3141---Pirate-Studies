@@ -19,7 +19,9 @@
                 <a href="index.html"><img src="images/home.png"></a>
                 <a href="games.html"><img src="images/games.png"></a>
                 <a href="chat-rooms.html"><img src="images/chatroom.png"></a>
-                <a href="login.html"><img src="images/login.png"></a>
+                <a id="nav-auth-link" href="login.html">
+                  <img id="nav-auth-img" src="images/login.png" style="height: 60px;" alt="Login">
+                </a>
       </div>
     </div>
   </header>
@@ -74,6 +76,27 @@
   <footer class="footer full-width">
     <p>2026 IceLink. All rights reserved.</p>
   </footer>
+
+  <script type="module">
+            import { auth } from "./js/firebase.js";
+            import { onAuthStateChanged } 
+            from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+            const navImg = document.getElementById("nav-auth-img");
+            const navLink = document.getElementById("nav-auth-link");
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // Logged in → show profile
+                    navImg.src = "images/userProfile.png";
+                    navImg.alt = "Profile";
+                    navLink.href = "user-profile.html";
+                } else {
+                    // Not logged in → show login
+                    navImg.src = "images/login.png";
+                    navImg.alt = "Login";
+                    navLink.href = "login.html";
+                }
+            });
+        </script>
 
   <script src="js/quiz.js"></script>
 </body>
