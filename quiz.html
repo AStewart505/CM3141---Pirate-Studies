@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Personality Test</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/quiz.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar full-width">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="images/IceLink_logo.png" style="height: 60px;">
+      </div>
+
+      <div class="nav-right">
+        <a href="#"><img src="images/home.png"></a>
+        <a href="#"><img src="images/games.png"></a>
+        <a href="#"><img src="images/chatroom.png"></a>
+        <a href="#"><img src="images/login.png"></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- LEFT -->
+    <div class="side-bg"></div>
+
+    <!-- CENTER -->
+    <div class="content-area">
+
+      <!-- VIDEO -->
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="videos/Icelink_background.mp4" type="video/mp4">
+      </video>
+
+      <!-- OVERLAY -->
+      <div class="video-overlay"></div>
+
+      <!-- PAGE CONTENT -->
+      <div class="page-content">
+
+        <!-- QUIZ CONTAINER -->
+        <div class="container">
+
+          <div class="progress-bar">
+            <div id="progress"></div>
+          </div>
+
+          <p id="pageIndicator">Page 1 of 3</p>
+
+          <div id="quiz"></div>
+
+          <div class="navigation">
+            <button id="backBtn">Back</button>
+            <button id="nextBtn">Next</button>
+            <button id="submitBtn" style="display:none;">Submit</button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="side-bg"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer full-width">
+    <p>2026 IceLink. All rights reserved.</p>
+  </footer>
+
+  <script src="js/quiz.js"></script>
+</body>
+</html>
