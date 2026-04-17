@@ -1,0 +1,30 @@
+/* GAMES PAGE HEADER */
+.games-header {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}
+
+/* BIG GLOW TITLE */
+.games-header h1 {
+  font-size: 48px;
+  font-weight: 800;
+
+  background: linear-gradient(to bottom, #ffffff, #7dd3fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(56,189,248,0.7),
+    0 0 35px rgba(56,189,248,0.5);
+
+  margin-bottom: 10px;
+}
+
+/* SUBTEXT */
+.games-header p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 0 6px rgba(0,0,0,0.3);
+}

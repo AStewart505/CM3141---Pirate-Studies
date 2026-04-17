@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IceLink</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/escape-room.css">
+    </head>
+    
+    <body>
+        
+        <!-- NAVBAR -->
+        <header class="navbar full-width"> 
+            <div class="nav-container">
+                <div class="nav-left">
+                    <img src="images/IceLink_logo.png" style="height: 60px;">
+                </div>
+
+                <div class="nav-right">
+                    <a href="index.html"><img src="images/home.png" style="height: 60px;"></a>
+                    <a href="games.html"><img src="images/games.png" style="height: 60px;"></a>
+                    <a href="chat-rooms.html"><img src="images/chatroom.png" style="height: 60px;"></a>
+                    <a id="nav-auth-link" href="login.html">
+                        <img id="nav-auth-img" src="images/login.png" style="height: 60px;" alt="Login">
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-wrapper">
+            <!-- LEFT SIDE -->
+            <div class="side-bg"></div>
+
+            <!-- CENTER CONTENT -->
+            <div class="content-area">
+
+                <!-- VIDEO BACKGROUND -->
+                <video autoplay muted loop playsinline poster="images/video_fallback_image.png" class="bg-video">
+                    <source src="videos/Icelink_background.mp4" type="video/mp4">
+                </video>
+
+                <!-- OVERLAY -->
+                <div class="video-overlay"></div>
+
+                <!-- ALL CONTENT -->
+                <div class="page-content">
+                    <section class="games-header">
+                        <h1>🎮 Escape Room</h1>
+                        <p>Explore and find your way out</p>
+                    </section>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="side-bg"></div>
+        </div>
+        
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p class="footer-title">IceLink</p>
+            <p class="footer-copy">© 2026 IceLink Inc. All rights reserved.</p>
+        </footer>
+
+        <script type="module">
+            import { auth } from "./js/firebase.js";
+            import { onAuthStateChanged } 
+            from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+            const navImg = document.getElementById("nav-auth-img");
+            const navLink = document.getElementById("nav-auth-link");
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // Logged in → show profile
+                    navImg.src = "images/userProfile.png";
+                    navImg.alt = "Profile";
+                    navLink.href = "user-profile.html";
+                } else {
+                    // Not logged in → show login
+                    navImg.src = "images/login.png";
+                    navImg.alt = "Login";
+                    navLink.href = "login.html";
+                }
+            });
+        </script>
+    </body>
+</html>
