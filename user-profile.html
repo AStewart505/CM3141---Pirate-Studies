@@ -8,7 +8,6 @@
 </head>
 
 <body>
-
     <!-- NAVBAR (same as index) -->
     <header class="navbar full-width">
         <div class="nav-container">
@@ -50,8 +49,8 @@
                         <div class="profile-banner"></div>
                         <div class="profile-main">
                             <img src="images/user_pfp.png" alt="User Avatar" class="avatar">
-                            <h2>Alex Johnson</h2>
-                            <p class="username">@alex</p>
+                            <h2 id="profile-name">Loading...</h2>
+                            <p class="username" id="profile-username">@user</p>
                             <p class="badge">Explorer</p>
                             <p class="bio">
                                 Finding your people shouldn't be difficult.
@@ -102,6 +101,30 @@
         <p class="footer-title">IceLink</p>
         <p class="footer-copy">© 2026 IceLink Inc. All rights reserved.</p>
     </footer>
+
+    <script type="module">
+import { auth } from "./js/firebase.js";
+import { onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+/* elements */
+const nameEl = document.getElementById("profile-name");
+const usernameEl = document.getElementById("profile-username");
+const emailEl = document.getElementById("profile-email");
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    const username = localStorage.getItem("username") || "User";
+
+    nameEl.textContent = username;
+    usernameEl.textContent = "@" + username.toLowerCase().replace(/\s/g, "");
+
+  } else {
+    /* not logged in → kick out */
+    window.location.href = "login.html";
+  }
+});
+</script>
 
 </body>
 </html>
