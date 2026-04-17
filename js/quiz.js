@@ -75,9 +75,15 @@ function renderPage() {
       }
 
       circle.addEventListener("click", () => {
-        answers[i] = value;      // save answer
-        renderPage();            // re-render to update selected state
-      });
+  answers[i] = value;
+
+  // remove selected from siblings
+  const allCircles = scale.querySelectorAll(".circle");
+  allCircles.forEach(c => c.classList.remove("selected"));
+
+  // add only to clicked one
+  circle.classList.add("selected");
+});
 
       scale.appendChild(circle);
     }
@@ -107,7 +113,7 @@ function renderPage() {
 }
 
 function updateButtons() {
-  backBtn.style.display = currentPage === 0 ? "none" : "inline-block";
+  backBtn.style.visibility = currentPage === 0 ? "hidden" : "visible";
 
   const isLastPage = currentPage === TOTAL_PAGES - 1;
   nextBtn.style.display = isLastPage ? "none" : "inline-block";
@@ -230,7 +236,7 @@ if (finalCharacter === "Unicorn") imageName = "unicorn_img";
 if(finalCharacter === "Growth Hacker" || finalCharacter === "Tech Hipster" || finalCharacter === "Creative Entrepreneur")
   {
     document.querySelector(".container").innerHTML =
-    `<img class="result-image large" src="images/${imageName}.jpg" alt="${finalCharacter}">
+    `<img class="result-image large" src="images/quizResult/${imageName}.jpg" alt="${finalCharacter}">
     <h2>You are a ${finalCharacter}!</h2>
     <p>${description}</p>
     `;
@@ -238,7 +244,7 @@ if(finalCharacter === "Growth Hacker" || finalCharacter === "Tech Hipster" || fi
 else
   {
     document.querySelector(".container").innerHTML =
-    `<img class="result-image" src="images/${imageName}.jpg" alt="${finalCharacter}">
+    `<img class="result-image" src="images/quizResult/${imageName}.jpg" alt="${finalCharacter}">
     <h2>You are a ${finalCharacter}!</h2>
     <p>${description}</p>
     `;
