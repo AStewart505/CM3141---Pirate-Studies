@@ -31,6 +31,7 @@ h2{
 }
 
 .page-content {
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
