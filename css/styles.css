@@ -865,7 +865,8 @@ html,body {
     text-align: center;
   }
 
-  .signup-text a {
+  .signup-text a
+  {
     color: #9ee7ff;
     text-decoration: none;
   }
