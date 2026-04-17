@@ -106,9 +106,10 @@
     </footer>
 
     <script type="module">
-        import { auth } from "./js/firebase.js";
+        import { auth, db } from "./js/firebase.js";
         import { onAuthStateChanged } 
         from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { ref, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
         // Logout functionality
         import { signOut } 
@@ -118,7 +119,6 @@
         logoutBtn.addEventListener("click", async () => {
             try {
                 await signOut(auth);
-                localStorage.removeItem("username");
                 // redirect after logout
                 window.location.href = "index.html";
             } catch (error) {
@@ -131,9 +131,23 @@
         const usernameEl = document.getElementById("profile-username");
         const emailEl = document.getElementById("profile-email");
 
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async (user) => {
             if (user) {
-                const username = localStorage.getItem("username") || "User";
+                /* fetch username from Firebase database */
+                const userRef = ref(db, 'users/' + user.uid);
+                const snapshot = await get(userRef);
+                
+                let username = "User";
+                if (snapshot.exists()) {
+                    const userData = snapshot.val();
+                    username = userData.name;
+                    /* update localStorage for quick access */
+                    localStorage.setItem("username", username);
+                } else {
+                    /* fallback to localStorage if no database entry */
+                    username = localStorage.getItem("username") || "User";
+                }
+                
                 nameEl.textContent = username;
                 usernameEl.textContent = "@" + username.toLowerCase().replace(/\s/g, "");
                 emailEl.textContent = user.email;
