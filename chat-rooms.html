@@ -46,15 +46,15 @@
                     <h4>Public</h4>
 
                     <div class="channel active">
-                        🌐 General <span class="unread-badge">3</span>
+                        🌐 General 
                     </div>
 
                     <div class="channel">❄️ Icebreakers</div>
 
                     <h4>Your Groups</h4>
 
-                    <div class="channel">👥 Study Team</div>
-                    <div class="channel">👥 Project Group</div>
+                    <div class="group-list"></div>
+                    <button id="create-group-btn">Create Group</button>
                 </div>
 
                 <!-- CHAT -->
@@ -62,15 +62,7 @@
 
                     <div class="chat-header">🌐 General</div>
 
-                    <div class="chat-messages">
-                        <div class="message">
-                            <strong>Alex:</strong> <span>Hello everyone 👋</span>
-                        </div>
-
-                        <div class="message">
-                            <strong>Jamie:</strong> <span>Anyone done the quiz yet?</span>
-                        </div>
-                    </div>
+                    <div class="chat-messages"></div>
 
                     <div class="chat-input">
                         <input type="text" placeholder="Message #general">
@@ -82,8 +74,11 @@
                 <!-- USERS -->
                 <div class="chat-users">
                     <h4>Online</h4>
-                    <div class="user online">● Alex</div>
-                    <div class="user online">● Jamie</div>
+                    <div class="online-list"></div>
+                    <div class="invite-section">
+                        <h4>Invites</h4>
+                    <div class="invite-list"></div>
+                    </div>
                 </div>
 
             </div>
@@ -148,55 +143,33 @@ onAuthStateChanged(auth, (user) => {
 });
 </script>
 
-<!-- CHAT SCRIPT -->
-<script type="module">
-import { auth, db } from "./js/firebase.js";
-import { ref, push, onChildAdded } 
-from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+<script type="module" src="js/chatrooms.js"></script>
 
-const input = document.querySelector(".chat-input input");
-const button = document.querySelector(".chat-input button");
-const messages = document.querySelector(".chat-messages");
+<div id="group-modal">
+  <div class="group-modal-card">
+    <h2>Create Group ❄️</h2>
 
-const messagesRef = ref(db, "messages");
+    <input type="text" id="group-name-input" placeholder="Enter group name">
 
-function sendMessage() {
-    const text = input.value.trim();
-    if (!text) return;
+    <div class="group-modal-actions">
+      <button id="cancel-group-btn">Cancel</button>
+      <button id="confirm-group-btn">Create</button>
+    </div>
+  </div>
+</div>
 
-    const user = auth.currentUser;
-    const username = localStorage.getItem("username") || user?.email || "User";
+<div id="invite-modal">
+  <div class="invite-card">
+    <h2>Invite User ❄️</h2>
 
-    push(messagesRef, {
-        user: username,
-        text: text,
-        timestamp: Date.now()
-    });
+    <input type="text" id="invite-email-input" placeholder="Enter user email">
 
-    input.value = "";
-}
-
-button.addEventListener("click", sendMessage);
-
-input.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") sendMessage();
-});
-
-onChildAdded(messagesRef, (snapshot) => {
-    const msg = snapshot.val();
-
-    const msgEl = document.createElement("div");
-    msgEl.classList.add("message");
-
-    msgEl.innerHTML = `
-        <strong style="color:white;">${msg.user}:</strong>
-        <span style="color:#7dd3fc;"> ${msg.text}</span>
-    `;
-
-    messages.appendChild(msgEl);
-    messages.scrollTop = messages.scrollHeight;
-});
-</script>
+    <div class="invite-actions">
+      <button id="cancel-invite-btn">Cancel</button>
+      <button id="send-invite-btn">Send</button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
