@@ -99,6 +99,17 @@
     <p class="footer-copy">© 2026 IceLink Inc.</p>
 </footer>
 
+<div id="auth-overlay">
+  <div class="auth-card">
+    <h2>Access Restricted ❄️</h2>
+    <p>You must be logged in to access the chatroom.</p>
+
+    <a href="login.html" class="auth-img-btn">
+      <img src="images/login.png" alt="Login">
+    </a>
+  </div>
+</div>
+
 <!-- NAVBAR AUTH SCRIPT -->
 <script type="module">
 import { auth } from "./js/firebase.js";
@@ -121,6 +132,21 @@ onAuthStateChanged(auth, (user) => {
 });
 </script>
 
+<script type="module">
+import { auth } from "./js/firebase.js";
+import { onAuthStateChanged } 
+from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const overlay = document.getElementById("auth-overlay");
+const pageWrapper = document.querySelector(".page-wrapper");
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    pageWrapper.classList.add("blurred");
+    overlay.style.display = "flex";
+  }
+});
+</script>
 
 <!-- CHAT SCRIPT -->
 <script type="module">
