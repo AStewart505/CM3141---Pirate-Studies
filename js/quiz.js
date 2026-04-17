@@ -112,6 +112,12 @@ function renderPage() {
   updateButtons();
 }
 
+function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+}
 function updateButtons() {
   backBtn.style.visibility = currentPage === 0 ? "hidden" : "visible";
 
@@ -144,12 +150,14 @@ nextBtn.addEventListener("click", () => {
   }
   currentPage++;
   renderPage();
+  scrollToTop();
 });
 
 // Back button
 backBtn.addEventListener("click", () => {
   currentPage--;
   renderPage();
+  scrollToTop();
 });
 
 // Submit button (only on last page)
@@ -180,6 +188,11 @@ function calculateResult() {
 
   let finalCharacter = "";
   let description = "";
+
+
+
+
+
 
   // 3-way tie -> Unicorn
   if (topTypes.length === 3) {
