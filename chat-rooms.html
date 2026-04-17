@@ -9,68 +9,120 @@
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <header class="navbar full-width">
-        <div class="nav-container">
-            <div class="nav-left">
-                <img src="images/IceLink_logo.png" style="height: 60px;">
-            </div>
-            
-            <div class="nav-right">
-                <a href="index.html"><img src="images/home.png"></a>
-                <a href="games.html"><img src="images/games.png"></a>
-                <a href="chat-rooms.html"><img src="images/chatroom.png"></a>
-                <a href="login.html"><img src="images/login.png"></a>
-            </div>
+
+<header class="navbar full-width">
+    <div class="nav-container">
+        <div class="nav-left">
+            <img src="images/IceLink_logo.png" style="height: 60px;">
         </div>
-    </header>
+        <div class="nav-right">
+            <a href="index.html"><img src="images/home.png"></a>
+            <a href="games.html"><img src="images/games.png"></a>
+            <a href="chat-rooms.html"><img src="images/chatroom.png"></a>
+            <a href="login.html"><img src="images/login.png"></a>
+        </div>
+    </div>
+</header>
 
-    <!-- CHAT PAGE -->
-    <div class="chat-page">
+<div class="page-wrapper">
+    <div class="side-bg"></div>
 
-        <!-- MAIN CONTAINER -->
-        <div class="chat-wrapper">
-            <div class="chat-container">
-                
-                <!-- LEFT: CHANNELS -->
+    <div class="content-area">
+
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="videos/Icelink_background.mp4" type="video/mp4">
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="page-content">
+
+            <div class="chat-wrapper">
+
+                <!-- SIDEBAR -->
                 <div class="chat-sidebar">
                     <h4>Public</h4>
-                    <div class="channel active">🌐 General</div>
+
+                    <div class="channel active">
+                        🌐 General <span class="unread-badge">3</span>
+                    </div>
+
                     <div class="channel">❄️ Icebreakers</div>
+
                     <h4>Your Groups</h4>
+
                     <div class="channel">👥 Study Team</div>
                     <div class="channel">👥 Project Group</div>
                 </div>
-            
-                <!-- CENTER: CHAT -->
+
+                <!-- CHAT -->
                 <div class="chat-main">
+
                     <div class="chat-header">🌐 General</div>
+
                     <div class="chat-messages">
-                        <div class="message"><strong>Alex:</strong> Hello everyone 👋</div>
-                        <div class="message"><strong>Jamie:</strong> Anyone done the quiz yet?</div>
+                        <div class="message">
+                            <strong>Alex:</strong> <span>Hello everyone 👋</span>
+                        </div>
+
+                        <div class="message">
+                            <strong>Jamie:</strong> <span>Anyone done the quiz yet?</span>
+                        </div>
                     </div>
-                
+
                     <div class="chat-input">
                         <input type="text" placeholder="Message #general">
                         <button>Send</button>
                     </div>
+
                 </div>
 
-                <!-- RIGHT: ONLINE -->
+                <!-- USERS -->
                 <div class="chat-users">
                     <h4>Online</h4>
                     <div class="user online">● Alex</div>
                     <div class="user online">● Jamie</div>
-                    <div class="user offline">● Chris</div>
                 </div>
+
             </div>
+
         </div>
     </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p class="footer-title">IceLink</p>
-        <p class="footer-copy">© 2026 IceLink Inc. All rights reserved.</p>
-    </footer>
+    <div class="side-bg"></div>
+</div>
+
+<footer class="footer">
+    <p class="footer-title">IceLink</p>
+    <p class="footer-copy">© 2026 IceLink Inc.</p>
+</footer>
+
+<script>
+const input = document.querySelector(".chat-input input");
+const button = document.querySelector(".chat-input button");
+const messages = document.querySelector(".chat-messages");
+
+function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    const msg = document.createElement("div");
+    msg.classList.add("message");
+
+    msg.innerHTML = `<strong>You:</strong> <span>${text}</span>`;
+
+    messages.appendChild(msg);
+
+    input.value = "";
+    messages.scrollTop = messages.scrollHeight;
+}
+
+button.addEventListener("click", sendMessage);
+
+input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+});
+</script>
+
 </body>
 </html>
