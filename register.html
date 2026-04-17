@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IceLink Sign In</title>
+    <title>IceLink Sign Up</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
   </head>
   <body>
     <header class="navbar full-width">
@@ -25,29 +25,38 @@
     <div class="page-wrapper">
       <div class="side-bg"></div>
       <div class="content-area">
-        <div class="login-panel">
-          <div class="login-card">
+        <div class="register-panel">
+          <div class="register-card">
             <div class="logo-wrapper">
               <img src="images/IceLink_logo.png" alt="IceLink">
             </div>
-            <h2>Sign in to IceLink</h2>
-            <p>Access your groups, quizzes, and chat rooms in one place.</p>
-            <form action="/search" method="POST">
+            <h2>Join IceLink</h2>
+            <p>Create your account to connect with students and discover your personality.</p>
+            <form action="/register" method="POST">
+              <div>
+                <label for="name">Full Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter your full name" autocomplete="name" required>
+              </div>
               <div>
                 <label for="email">Email address</label>
                 <input type="email" name="email" id="email" placeholder="name@example.com" autocomplete="email" required>
               </div>
               <div>
-                <div class="field-header">
-                  <label for="password">Password</label>
-                  <a href="#">Forgot password?</a>
-                </div>
-                <input type="password" name="password" id="password" placeholder="Enter your password" autocomplete="current-password" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Create a password" autocomplete="new-password" required>
               </div>
-              <button type="submit" id="signButton">Sign in</button>
+              <div>
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" autocomplete="new-password" required>
+              </div>
+              <div class="checkbox-wrapper">
+                <input type="checkbox" name="terms" id="terms" required>
+                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+              </div>
+              <button type="submit" id="registerButton">Sign up</button>
             </form>
-            <p class="signup-text">
-              Not a member? <a href="register.html">Sign up here</a>
+            <p class="signin-text">
+              Already have an account? <a href="login.html">Sign in here</a>
             </p>
           </div>
         </div>
