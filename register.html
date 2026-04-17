@@ -72,9 +72,10 @@
     </footer>
 
     <script type="module">
-import { auth } from "./js/firebase.js";
+import { auth, db } from "./js/firebase.js";
 import { createUserWithEmailAndPassword } 
 from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { ref, set } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const form = document.getElementById("registerForm");
 
@@ -101,6 +102,12 @@ form.addEventListener("submit", async (e) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
     console.log("User created:", userCredential.user);
+
+    /* store user data in Firebase database */
+    await set(ref(db, 'users/' + userCredential.user.uid), {
+      name: name,
+      email: email
+    });
 
     /* store username locally (used later in chat) */
     localStorage.setItem("username", name);

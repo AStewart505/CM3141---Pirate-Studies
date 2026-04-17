@@ -63,9 +63,10 @@
     </footer>
 
     <script type="module">
-import { auth } from "./js/firebase.js";
+import { auth, db } from "./js/firebase.js";
 import { signInWithEmailAndPassword } 
 from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { ref, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const form = document.getElementById("loginForm");
 
@@ -83,9 +84,18 @@ form.addEventListener("submit", async (e) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
-    // TEMP: derive username from email (until database is used)
-    const emailName = email.split("@")[0];
-    localStorage.setItem("username", emailName);
+    /* retrieve username from database */
+    const userRef = ref(db, 'users/' + userCredential.user.uid);
+    const snapshot = await get(userRef);
+    
+    if (snapshot.exists()) {
+      const userData = snapshot.val();
+      localStorage.setItem("username", userData.name);
+    } else {
+      /* fallback if no user data in database */
+      const emailName = email.split("@")[0];
+      localStorage.setItem("username", emailName);
+    }
 
     console.log("Logged in:", userCredential.user);
 
