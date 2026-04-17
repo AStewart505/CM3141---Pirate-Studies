@@ -4,7 +4,11 @@
   width: 560px;
   text-align: center;
 
-  background: rgba(2, 26, 145, 0.65);
+    background: linear-gradient(
+    to right,
+    rgba(2, 25, 145, 0.9),
+    rgba(56, 189, 248, 0.7)
+    );
   backdrop-filter: blur(10px);
 
   padding: 30px;
@@ -12,11 +16,25 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 
-  max-height: 85vh;
-  overflow-y: auto;
+}
+h2{
+  font-size: 52px;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+  background: linear-gradient(to bottom, #ffffff, #bfe9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    0 0 8px rgba(255,255,255,0.7),
+    0 0 16px rgba(56,189,248,0.5);
 }
 
-
+.page-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Progress Bar */
 .progress-bar {
@@ -64,19 +82,26 @@ h2 {
   margin-top: 10px;
 }
 
-.scale {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
+
+.scale,
+.labels {
+  display: grid;
+  grid-template-columns: repeat(5, 100px); /* fixed columns */
+  justify-content: center; /* centers whole row */
+  gap: 15px;
+  text-align: center;
 }
+
+
+
 
 /* Base Circle */
 .circle {
   flex: 1;
-  max-width: 50px;
+  width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin: 0 auto;
 
   border: 2px solid rgba(255,255,255,0.5);
   background: transparent;
@@ -91,13 +116,14 @@ h2 {
 }
 .circle[data-value="2"] { 
   border-color: #60a5fa; }
-.circle[data-value="3"] { border-color: #818cf8; 
+.circle[data-value="3"] { 
+  border-color: #0b7abb; 
 }
 .circle[data-value="4"] {
-  border-color: #6366f1; 
+  border-color: #2167ff; 
 }
 .circle[data-value="5"] { 
-  border-color: #4338ca; 
+  border-color: rgba(2, 25, 145, 0.9); 
 }
 
 /* Hover effect */
