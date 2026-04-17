@@ -1,49 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Games - UniConnect</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <title>Games | IceLink</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/games.css">
+</head> 
 
-    <body>
-        <!-- NAVBAR -->
-        <header class="navbar">
-            <h2>🎓 UniConnect</h2>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="games.html">Games</a>
-                <a href="chat.html">Chat Rooms</a>
-                <button class="login-btn">Login</button>
-            </nav>
-        </header>
+<body>
 
-        <!-- PAGE TITLE -->
-        <section class="page-header">
-            <h1>🎮 Games & Activities</h1>
-            <p>Explore interactive experiences and connect with others</p>
-        </section>
+  <!-- NAVBAR -->
+  <header class="navbar full-width">
+    <div class="nav-container">
+      <div class="nav-left">
+        <img src="images/IceLink_logo.png" style="height: 60px;">
+      </div>
+
+      <div class="nav-right">
+        <a href="index.html"><img src="images/home.png" style="height: 60px;"></a>
+        <a href="games.html"><img src="images/games.png" style="height: 60px;"></a>
+        <a href="chat-rooms.html"><img src="images/chatroom.png" style="height: 60px;"></a>
+        <a href="login.html"><img src="images/login.png" style="height: 60px;"></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+
+    <!-- LEFT -->
+    <div class="side-bg"></div>
+
+    <!-- CENTER -->
+    <div class="content-area">
+
+      <!-- VIDEO -->
+      <video autoplay muted loop playsinline class="bg-video">
+        <source src="videos/Icelink_background.mp4" type="video/mp4">
+      </video>
+
+      <!-- OVERLAY -->
+      <div class="video-overlay"></div>
+
+      <!-- PAGE CONTENT (THIS WAS MISSING) -->
+      <div class="page-content">
+
+        <!-- PAGE HEADER -->
+  <section class="games-header">
+  <h1>🎮 Games & Activities</h1>
+  <p>Explore interactive experiences and connect with others</p>
+</section>
 
         <!-- GAME CARDS -->
-        <section class="games-container">
+        <section class="features">
 
-            <div class="game-card">
-                <h2>🧠 Personality Quiz</h2>
-                <p>Discover your personality type and ideal group role.</p>
-                <button>Start Quiz</button>
-            </div>
+          <div class="card">
+            <h3>🧠 Personality Quiz</h3>
+            <p>Discover your personality type and ideal group role.</p>
+            <a href="quiz.html">
+              <img src="images/start-quiz.png" style="height: 40px;">
+            </a>
+          </div>
 
-            <div class="game-card">
-                <h2>🧩 Escape Room</h2>
-                <p>Solve puzzles and unlock different endings with others.</p>
-                <button>Play Escape Room</button>
-            </div>
+          <div class="card">
+            <h3>🧩 Escape Room</h3>
+            <p>Solve puzzles and unlock different endings with others.</p>
+            <a href="escape-room.html">
+              <img src="images/escape-room.png" style="height: 40px;">
+            </a>
+          </div>
 
-            <div class="game-card">
-                <h2>🎓 Life Simulator</h2>
-                <p>Simulate your future career and life choices.</p>
-                <button>Start Simulation</button>
-            </div>
+          <div class="card locked">
+  <h3>🎓 Life Simulator</h3>
+  <p>Simulate your future career and life choices.</p>
+
+  <div class="locked-btn">
+    <img src="images/lock.png" style="height: 40px;">
+    <span>Coming Soon</span>
+  </div>
+</div>
+
         </section>
-    </body>
+
+      </div> <!-- END page-content -->
+    </div>
+
+    <!-- RIGHT -->
+    <div class="side-bg"></div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer full-width">
+    <p class="footer-title">IceLink</p>
+    <p class="footer-copy">© 2026 IceLink Inc. All rights reserved.</p>
+  </footer>
+
+</body>
 </html>
